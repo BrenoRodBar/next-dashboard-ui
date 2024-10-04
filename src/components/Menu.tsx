@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Image from "next/image";
 const menuItems = [
   {
     title: "MENU",
@@ -112,3 +114,23 @@ const menuItems = [
     ],
   },
 ];
+
+const Menu = () => {
+  return (
+    <div className=''>
+      {menuItems.map((i, index)=> (
+        <div className="" key={index}>
+          <span >{i.title}</span>
+          {i.items.map((item, index)=> (
+            <Link href={item.href} key={index}>
+            <Image src={item.icon} width={20} height={20} alt=""/>
+            <span>{item.label}</span>
+            </Link>
+          ))}
+          </div>
+      ))}
+    </div>
+  )
+}
+
+export default Menu
